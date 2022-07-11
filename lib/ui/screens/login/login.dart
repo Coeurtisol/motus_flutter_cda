@@ -29,28 +29,40 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              // margin: EdgeInsets,
+              padding: const EdgeInsets.all(8),
               child: Column(
                 children: [
-                  TextField(
-                    // obscureText: false,
-                    controller: loginController,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        fillColor: Colors.white,
-                        filled: true,
-                        labelText: "Login"),
+                  Container(
+                    margin: const EdgeInsets.all(8),
+                    child: TextField(
+                        obscureText: false,
+                        controller: loginController,
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            fillColor: Colors.white,
+                            filled: true,
+                            labelText: "Login",
+                            labelStyle: TextStyle(
+                                color: Colors.black,
+                                backgroundColor: Colors.white,
+                                fontSize: 20))),
                   ),
-                  TextField(
-                    // obscureText: false,
-                    controller: passwordController,
-                    keyboardType: TextInputType.visiblePassword,
-                    decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        fillColor: Colors.white,
-                        filled: true,
-                        labelText: "Password"),
+                  Container(
+                    margin: const EdgeInsets.all(8),
+                    child: TextField(
+                      obscureText: false,
+                      controller: passwordController,
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          fillColor: Colors.white,
+                          filled: true,
+                          labelText: "Password",
+                          labelStyle: TextStyle(
+                              color: Colors.black,
+                              backgroundColor: Colors.white,
+                              fontSize: 20)),
+                    ),
                   ),
                   ElevatedButton(
                       onPressed: () {

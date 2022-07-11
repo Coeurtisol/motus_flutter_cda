@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
-import 'package:motus_flutter_cda/data/entities/player.dart';
 import 'package:motus_flutter_cda/data/repository/user_repository.dart';
 
 class LoginViewModel with ChangeNotifier {

@@ -1,11 +1,40 @@
-import "dart:io";
 import 'package:flutter/material.dart';
+import 'package:motus_flutter_cda/ui/screens/global/motus_page.dart';
+import 'package:motus_flutter_cda/ui/screens/global/score_page.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
   @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  final List<Widget> _widgets = [const MotusPage(), const ScorePage()];
+
+  int _index = 0;
+
+  void _changePage(int index) {
+    setState(() {
+      _index = index;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Text('connecté');
+    return Scaffold(
+      appBar: AppBar(title: const Text("Motus")),
+      body: _widgets[_index],
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: _changePage,
+        currentIndex: _index,
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.question_mark_outlined), label: 'Motus du jour'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.table_chart_outlined), label: 'Score'),
+        ],
+      ),
+    );
   }
 }

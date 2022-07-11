@@ -16,12 +16,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-        title: "Motus CDA",
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(primarySwatch: Colors.blue),
-        routeInformationParser: BeamerParser(),
-        routerDelegate: routerDelegate,
-        backButtonDispatcher:
-            BeamerBackButtonDispatcher(delegate: routerDelegate));
+      title: "Motus CDA",
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.blue),
+      routeInformationParser: BeamerParser(),
+      routerDelegate: routerDelegate,
+      backButtonDispatcher:
+          BeamerBackButtonDispatcher(delegate: routerDelegate)
+    );
   }
 }
