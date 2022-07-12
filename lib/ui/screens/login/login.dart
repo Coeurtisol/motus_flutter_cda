@@ -18,47 +18,49 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      backgroundColor: Colors.amber,
-      body: Consumer<LoginViewModel>(
-        builder: ((
-          context,
-          viewModel,
-          child,
-        ) {
-          viewModel.addListener(() {
-            if (viewModel.player != null) {
-              context.beamToNamed("/home");
-            }
-          });
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                padding: const EdgeInsets.all(8),
-                child: Column(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.all(8),
-                      child: TextField(
+      child: Scaffold(
+        backgroundColor: Colors.amber,
+        body: Consumer<LoginViewModel>(
+          builder: ((
+            context,
+            viewModel,
+            child,
+          ) {
+            viewModel.addListener(() {
+              if (viewModel.player != null) {
+                context.beamToNamed("/home");
+              }
+            });
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  child: Column(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.all(8),
+                        child: TextField(
                           controller: loginController,
                           keyboardType: TextInputType.emailAddress,
                           decoration: const InputDecoration(
-                              border: OutlineInputBorder(),
-                              fillColor: Colors.white,
-                              filled: true,
-                              labelText: "Login",
-                              labelStyle: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                              ))),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.all(8),
-                      child: TextField(
-                        obscureText: _hidePassword,
-                        controller: passwordController,
-                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            fillColor: Colors.white,
+                            filled: true,
+                            labelText: "Login",
+                            labelStyle: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.all(8),
+                        child: TextField(
+                          obscureText: _hidePassword,
+                          controller: passwordController,
+                          decoration: InputDecoration(
                             suffixIcon: InkWell(
                               onTap: () => setState(() {
                                 _hidePassword = !_hidePassword;
@@ -76,25 +78,27 @@ class _LoginPageState extends State<LoginPage> {
                             labelStyle: const TextStyle(
                               color: Colors.black,
                               fontSize: 20,
-                            )),
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        viewModel.signIn(
-                          email: loginController.value.text,
-                          password: passwordController.value.text,
-                        );
-                      },
-                      child: const Text("Se connecter"),
-                    )
-                  ],
-                ),
-              )
-            ],
-          );
-        }),
+                      ElevatedButton(
+                        onPressed: () {
+                          viewModel.signIn(
+                            email: loginController.value.text,
+                            password: passwordController.value.text,
+                          );
+                        },
+                        child: const Text("Se connecter"),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            );
+          }),
+        ),
       ),
-    ));
+    );
   }
 }

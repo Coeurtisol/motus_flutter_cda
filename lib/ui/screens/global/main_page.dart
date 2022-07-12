@@ -23,16 +23,30 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Motus")),
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text("Motus"),
+        automaticallyImplyLeading: false,
+        actions: const <Widget>[
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: null,
+          ),
+        ],
+      ),
       body: _widgets[_index],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _changePage,
         currentIndex: _index,
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.question_mark_outlined), label: 'Motus du jour'),
+            icon: Icon(Icons.question_mark_outlined),
+            label: 'Motus du jour',
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.table_chart_outlined), label: 'Score'),
+            icon: Icon(Icons.table_chart_outlined),
+            label: 'Score',
+          ),
         ],
       ),
     );
