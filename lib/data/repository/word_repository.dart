@@ -1,5 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:motus_flutter_cda/data/firestore/user_firestore.dart';
+import 'package:motus_flutter_cda/data/firestore/word_firestore.dart';
 
 import '../firestore/word_firestore.dart';
 

@@ -7,8 +7,9 @@ class WordFirestore{
   static WordFirestore? _instance;
   static FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
   static late final _wordRef;
+  WordFirestore._();
 
-  static Future<WordFirestore> getInstance()  {
+  static WordFirestore getInstance()  {
     if(_instance == null) {
       _wordRef = _firebaseFirestore.collection('word')
           .withConverter<Word>(
